@@ -1,0 +1,40 @@
+﻿@page
+@model PaylocityChallenge.Pages.Employees.IndexModel
+@{
+    ViewData["Title"] = "Employees";
+}
+<form method="get">
+    <h1>Employees</h1>
+    <br />
+    <div class="input-group">
+        <input class="form-control" asp-for="SearchTerm" placeholder="Type to search by Employee FirstName">
+        <div class="input-group-append">
+            <button class="btn btn-primary" type="submit">Search</button>
+        </div>
+    </div>
+</form>
+<div class="card-deck">
+    @foreach(var employee in Model.Employees)
+    {
+        //var photopath = "~/images/" + employee.
+       <div class="=card m-4" style="min-width: 18rem; max-width:30.5%">
+           <div class="card-header text-center">
+               <h3>@employee.FirstName @employee.LastName</h3>
+           </div>
+          <div class="card" style="width: 18rem;">
+               <ul class="list-group list-group-flush">
+                   <li class="list-group-item"><h6>Active Dependent Count:</h6>@employee.Dependents.Where(e => e.IsActive).Count()</li>
+                   <li class="list-group-item"><h6>PayCheck Benefit Cost:</h6> @String.Format("{0:c}", @employee.PayCheckBenefitCost)</li>
+                   <li class="list-group-item"><h6>Paycheck Salary:</h6>  @String.Format("{0:c}",@employee.PayCheckSalary)</li>
+                   <li class="list-group-item"><h6>Yearly Benefit Cost:</h6>  @String.Format("{0:c}",@employee.YearlyBenefitCost)</li>
+                   <li class="list-group-item"><h6>Yearly Salary:</h6> @String.Format("{0:c}", @employee.YearlySalary)</li>
+               </ul> 
+           </div>
+           <div class="card-footer text-center">
+               <a asp-page="/Employees/Details" asp-route-ID=@employee.Id class="btn btn-primary m-1">View</a>
+               <a asp-page="/Employees/Edit" asp-route-ID="@employee.Id"
+                  class="btn btn-primary m-1">Edit</a>
+           </div>
+       </div>
+    }
+</div>

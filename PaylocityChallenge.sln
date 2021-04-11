@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaylocityChallenge", "PaylocityChallenge\PaylocityChallenge.csproj", "{FADF009C-AF7A-4938-966C-95F13BE41F7A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaylocityChallenge.Models", "BenefitsLibrary\PaylocityChallenge.Models.csproj", "{F03C3DF0-0F2C-4095-B053-66720AD5D007}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaylocityChallenge.Repository", "BenefitsRepository\PaylocityChallenge.Repository.csproj", "{A58A9EA4-AABA-40AE-909A-7581E357E249}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PaylocityChallenge.Services", "PaylocityChallenge.Services\PaylocityChallenge.Services.csproj", "{BCDD45EF-410F-427B-B693-28B166B7F561}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaylocityChallenge.Repository.Models", "PaylocityChallenge.Repository.Models\PaylocityChallenge.Repository.Models.csproj", "{5F7CE731-232A-4451-A374-C8F0FAC9AA3D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaylocityChallenge.Tests", "PaylocityChallenge.Tests\PaylocityChallenge.Tests.csproj", "{A03E6570-837A-4334-9B58-573500860EF9}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FADF009C-AF7A-4938-966C-95F13BE41F7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FADF009C-AF7A-4938-966C-95F13BE41F7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FADF009C-AF7A-4938-966C-95F13BE41F7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FADF009C-AF7A-4938-966C-95F13BE41F7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F03C3DF0-0F2C-4095-B053-66720AD5D007}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F03C3DF0-0F2C-4095-B053-66720AD5D007}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F03C3DF0-0F2C-4095-B053-66720AD5D007}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F03C3DF0-0F2C-4095-B053-66720AD5D007}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A58A9EA4-AABA-40AE-909A-7581E357E249}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A58A9EA4-AABA-40AE-909A-7581E357E249}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A58A9EA4-AABA-40AE-909A-7581E357E249}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A58A9EA4-AABA-40AE-909A-7581E357E249}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCDD45EF-410F-427B-B693-28B166B7F561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCDD45EF-410F-427B-B693-28B166B7F561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCDD45EF-410F-427B-B693-28B166B7F561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCDD45EF-410F-427B-B693-28B166B7F561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5F7CE731-232A-4451-A374-C8F0FAC9AA3D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5F7CE731-232A-4451-A374-C8F0FAC9AA3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5F7CE731-232A-4451-A374-C8F0FAC9AA3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5F7CE731-232A-4451-A374-C8F0FAC9AA3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A03E6570-837A-4334-9B58-573500860EF9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A03E6570-837A-4334-9B58-573500860EF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A03E6570-837A-4334-9B58-573500860EF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A03E6570-837A-4334-9B58-573500860EF9}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F30D5585-25AF-437B-ACF8-8D3B6803A693}
+	EndGlobalSection
+EndGlobal

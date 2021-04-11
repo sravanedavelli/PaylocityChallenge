@@ -1,0 +1,136 @@
+﻿@page "{id:min(1)?}"
+@model PaylocityChallenge.Pages.Employees.EditModel
+@{
+    ViewData["Title"] = "Edit";
+    var pageHeader = Model.Employee.Id > 0 ? "Edit Employee" : "Add Employee";
+    ViewData["DependentCount"] = Model.Employee.Dependents== null? 0: Model.Employee.Dependents.Count();
+}
+
+<h1>@pageHeader</h1>
+
+<form method="post" class="mt-3">
+    @*Use hidden input elements to store employee id which
+        we need when we submit the form*@
+    <input hidden asp-for="Employee.Id" />
+    <div asp-validation-summary="All" class="text-danger"></div>
+    @*asp-for tag helper takes care of displaying the existing
+        data in the respective input elements*@
+    <div class="form-group row">
+        <label asp-for="Employee.FirstName" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Employee.FirstName" class="form-control" placeholder="First Name">
+            <span asp-validation-for="Employee.FirstName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Employee.LastName" class="col-sm-2 col-form-label">
+        </label>
+        <div class="col-sm-10">
+            <input asp-for="Employee.LastName" class="form-control" placeholder="Last Name">
+            <span asp-validation-for="Employee.LastName" class="text-danger"></span>
+        </div>
+    </div>
+    <div class="form-group row">
+        <label asp-for="Employee.Email" class="col-sm-2 col-form-label"></label>
+        <div class="col-sm-10">
+            <input asp-for="Employee.Email" class="form-control" placeholder="Email">
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row justify-content-center"><button type="button" class="btn btn-info btn-default" id="AddDependent" value="Add">Add Dependent</button></div>
+        <br />
+        <div class="container-fluid pt-3" id="DependentContainer">
+
+            @*@foreach (var dependent in Model.Employee.Dependents)*@
+            @if(Model.Employee.Dependents != null)
+            {
+                @for (int i = 0; i < Model.Employee.Dependents.Count; i++)
+                {
+                    <div class="row justify-content-end p-1">
+                        <div class="col-sm-3">
+                            <input asp-for="@Model.Employee.Dependents[i].FirstName" class="form-control" placeholder="First Name">
+                            <span asp-validation-for="Employee.Dependents[i].FirstName" class="text-danger"></span>
+                        </div>
+                        <div class="col-sm-3">
+                            <input asp-for="@Model.Employee.Dependents[i].LastName" class="form-control" placeholder="Last Name">
+                            <span asp-validation-for="Employee.Dependents[i].LastName" class="text-danger"></span>
+                        </div>
+                        <div class="col-sm-3">
+                            <select asp-for="@Model.Employee.Dependents[i].Type" class="custom-select mr-sm-2"
+                                    asp-items="Html.GetEnumSelectList<DependentType>()">
+                            </select>
+                        </div>
+                        <div class="col-sm-2">
+                            <input type="checkbox" asp-for="@Model.Employee.Dependents[i].IsActive">
+                            <label class="form-check-label" asp-for="@Model.Employee.Dependents[i].IsActive">
+                                IsActive
+                            </label>
+                        </div>
+                        <input hidden asp-for="@Model.Employee.Dependents[i].Id" />
+
+                    </div>
+                }
+            }
+        </div>
+    </div>
+    <br />
+    <div class="form-group row justify-content-center ">
+        <div class="col-sm-20">
+            <button type="submit" class="btn btn-primary" >Save</button>
+            <a asp-page="/Employees/Index" class="btn btn-primary">Cancel</a>
+        </div>
+    </div>
+</form>
+@section scripts
+{
+    <script type="text/javascript">
+    $(document).ready(function () {
+         var j = @ViewData["DependentCount"];
+        $("#AddDependent").click(function () {
+            var div = $("<div/>").attr("class","row justify-content-end p-1");
+           // var value = "";
+
+            var coldivfirstname = $("<div/>").attr("class", "col-sm-3");
+            var coldivlastname = $("<div/>").attr("class", "col-sm-3");
+            var coldivdependenttype = $("<div/>").attr("class", "col-sm-3");
+            var coldivisactive = $("<div/>").attr("class", "col-sm-2");
+            var coldivremove = $("<div/>").attr("class", "col-sm-2");
+
+
+            var firstname = $("<input />").attr("type", "text").attr("class", "form-control").attr("placeholder", "First Name").attr("id", "Employee_Dependents_" + j + "__FirstName").attr("name", "Employee.Dependents[" + j + "].FirstName").attr("data-val-required", "Dependent First Name is Required").attr("data-val", "true").attr("data-val-regex-pattern", "(?i)^[a-z]+").attr("data-val-regex", "FirstName should only contain alphabets.").attr("data-val-minlength-min", "3").attr("data-val-minlength","FirstName Should Contain atleast 3 Characters");
+            var lastname = $("<input/>").attr("type", "text").attr("class", "form-control").attr("placeholder", "Last Name").attr("id", "Employee_Dependents_" + j + "__LastName").attr("name", "Employee.Dependents["+j+"].LastName");
+            var dependenttype = $("<select/>").attr("class", "custom-select mr-sm-2").attr("data-val", "true").attr("data-val-required", "The Type field is required.").attr("id", "Employee_Dependents_" + j + "__Type").attr("name", "Employee.Dependents[" + j + "].Type");
+            var isactive = $("<input/>").attr("type", "checkbox").attr("value", "true").attr("data-val", "true").attr("checked","checked").attr("data-val-required", "The Type field is required.").attr("id", "Employee_Dependents_" + j + "__IsActive").attr("name", "Employee.Dependents[" + j + "].IsActive");
+
+            var valueArray = ["0", "1", "2"];
+            var textArray = ["Select", "Child", "Spouse"];
+
+            for (var dr = 0; dr < valueArray.length; dr++)
+            {
+                var option = document.createElement("option");
+                option.value = valueArray[dr];
+                option.text = textArray[dr];
+                dependenttype.append(option);
+            }
+
+            //firstname.val(value);
+            //lastname.val(value);
+            div.append(coldivfirstname.append(firstname));
+            div.append(coldivlastname.append(lastname));
+            div.append(coldivdependenttype.append(dependenttype));
+           // div.append(coldivisactive.append(isactive));
+            var button = $("<input/>").attr("type", "button").attr("value", "Remove").attr("class","btn btn-outline-danger")
+            button.attr("onclick", "RemoveTextBox(this)");
+            div.append(coldivremove.append(button));
+            $("#DependentContainer").append(div);
+            j++;
+        });
+    });
+
+        function RemoveTextBox(button) {
+            $(button).parent().parent().remove();
+    }
+    </script>
+} 

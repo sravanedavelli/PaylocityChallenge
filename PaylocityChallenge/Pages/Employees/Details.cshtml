@@ -1,0 +1,47 @@
+﻿@page "/employees/view/{id}"
+@model PaylocityChallenge.Pages.Employees.DetailsModel
+@{
+    ViewData["Title"] = "Details";
+
+}
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header text-center">
+                <h1>@Model.Employee.FirstName @Model.Employee.LastName</h1>
+            </div>
+
+            <div class="card-body text-center">
+                <h4>Employee ID : @Model.Employee.Id</h4>
+                <h4>Email : @Model.Employee.Email</h4>
+                <div class="card">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h6>Active Dependent Count:</h6>@Model.Employee.Dependents.Where(e => e.IsActive).Count()</li>
+                        <li class="list-group-item"><h6>Benefit Cost per PayCheck:</h6> @String.Format("{0:c}", @Model.Employee.PayCheckBenefitCost)</li>
+                        <li class="list-group-item"><h6>Salary per PayCheck:</h6>  @String.Format("{0:c}", @Model.Employee.PayCheckSalary)</li>
+                        <li class="list-group-item"><h6>Yearly Benefit Cost:</h6>  @String.Format("{0:c}", @Model.Employee.YearlyBenefitCost)</li>
+                        <li class="list-group-item"><h6>Yearly Salary:</h6> @String.Format("{0:c}", @Model.Employee.YearlySalary)</li>
+                        @if (Model.Employee.Dependents.Count > 0)
+                        {
+                            <li class="list-group-item"><h6>Active Dependents:</h6>
+                                @foreach (var dependent in Model.Employee.Dependents.Where(e => e.IsActive))
+                                {
+                                    <div class="row justify-content-center">
+                                        <div class="col-sm-4 ">@dependent.FirstName @dependent.LastName</div>
+                                        <div class="col-sm-4 ">@dependent.Type.ToString()</div>        
+                                    </div>
+                                }
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="card-footer text-center">
+                <a asp-page="index"
+                   class="btn btn-primary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
