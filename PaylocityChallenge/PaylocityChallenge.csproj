@@ -21,7 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BenefitsLibrary\PaylocityChallenge.Models.csproj" />
+    <ProjectReference Include="..\PaylocityChallenge.Models\PaylocityChallenge.Models.csproj" />
     <ProjectReference Include="..\PaylocityChallenge.Services\PaylocityChallenge.Services.csproj" />
   </ItemGroup>
 
