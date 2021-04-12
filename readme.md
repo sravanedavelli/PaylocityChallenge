@@ -35,9 +35,9 @@ The IEmployeeRepository concrete implementation should be marked to MockEmployee
 
 	• .Net Core 3.1 using razor pages (MVVM pattern).
 	• Bootstrap, javascript and Jquery for front end.
-	• Auto Mapper for mapping objects across layers.
+	• Auto Mapper for mapping objects across application layers.
 	• Dapper micro ORM object mapper to query the database.
-	• Xunit framework with Moq for unite tests.
+	• Xunit framework with Moq for unit tests.
 	• Nlog is used for writing logs.
 	• Sql server.
 
