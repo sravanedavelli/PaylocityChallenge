@@ -52,10 +52,10 @@ The IEmployeeRepository concrete implementation should be marked to MockEmployee
 
 **Things to note**
 
-• All the application layers are built with dependency injection.
-• MockEmployeeRepository has been built to run  the application with out installing the SQL scripts.
-• Application is configured to write logs to C:\PaylocdityChallengeLogs. Please change that in launchsettings.json.
-• ServviceException class has been implemented to give error codes to exceptions. This would help in easy monitoring in tools like splunk or appdynamics.
+	• All the application layers are built with dependency injection.
+	• MockEmployeeRepository has been built to run  the application with out installing the SQL scripts.
+	• Application is configured to write logs to C:\PaylocdityChallengeLogs. Please change that in launchsettings.json.
+	• ServviceException class has been implemented to give error codes to exceptions. This would help in easy monitoring in tools like splunk or appdynamics.
 
 
 
