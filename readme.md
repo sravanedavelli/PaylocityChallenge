@@ -38,9 +38,11 @@ The IEmployeeRepository concrete implementation should be marked to MockEmployee
 • Auto Mapper for mapping objects across layers.
 • Dapper micro ORM object mapper to query the database.
 • Xunit framework with Moq for unite tests.
+• Nlog is used for writing logs.
 • Sql server.
 
 **Sample Screens**
+
 ![image](https://user-images.githubusercontent.com/55157295/114337926-e17b5f00-9b06-11eb-8ab3-c4db43019f62.png)
 ![image](https://user-images.githubusercontent.com/55157295/114337935-e809d680-9b06-11eb-82c9-0d846f1df996.png)
 ![image](https://user-images.githubusercontent.com/55157295/114337944-eb04c700-9b06-11eb-9679-996e72be4413.png)
@@ -49,5 +51,12 @@ The IEmployeeRepository concrete implementation should be marked to MockEmployee
 **Things to note**
 
 • All the application layers are built with dependency injection.
+• MockEmployeeRepository has been built to run  the application with out installing the SQL scripts.
+• Application is configured to write logs to C:\PaylocdityChallengeLogs. Please change that in launchsettings.json.
+• ServviceException class has been implemented to give error codes to exceptions. This would help in easy monitoring in tools like splunk or appdynamics.
+
+
+
+
 
 
